@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <style>
+        * {
+            font-family: sans-serif;
+        }
+
+        img {
+            display: block;
+            margin: auto;
+            margin-top: 25px;
+            margin-bottom: 25px;
+        }
+
+        #container {
+
+            width: 33%;
+            height: 500px;
+            margin: auto;
+            box-shadow: rgba(162, 170, 177, 0.2) 0px 8px 24px;
+            border-radius: 20px;
+        }
+
+        h3 {
+            text-align: center;
+            margin-bottom: 25px;
+            padding-top: 25px;
+        }
+
+        input {
+            width: 85%;
+            display: block;
+            margin: auto;
+            height: 40px;
+            margin-top: -6px;
+            border: 1px solid;
+            border-color: rgb(207, 206, 206);
+            border-radius: 8px;
+            padding-left: 20px;
+        }
+
+        .inputname {
+            margin-left: 25px;
+            font-size: 14px;
+            color: rgb(68, 68, 68);
+        }
+
+        ::placeholder {
+
+            font-size: 16px;
+            color: rgb(207, 206, 206);
+        }
+
+        #terms {
+            font-size: 12px;
+            width: 80%;
+            display: block;
+            margin: auto;
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        button {
+            width: 85%;
+            display: block;
+            margin: auto;
+            height: 50px;
+            border: 0px;
+            margin-top: 40px;
+            color: gray;
+            background-color: rgb(223, 222, 222);
+            border-radius: 5px;
+            margin-bottom: 40px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: rgb(29, 108, 154);
+            color: white;
+        }
+
+        #lastpara {
+            text-align: center;
+        }
+
+        span {
+            color: blue;
+            cursor: pointer;
+        }
+
+        a {
+            direction: none;
+            color: blue;
+        }
+
+        #attsign {
+            text-decoration: none;
+        }
+
+        #terms,
+        #lastpara {
+            color: gray;
+        }
+
+        #lastpara {
+            margin-bottom: 30px;
+        }
+
+        #lastline {
+            text-align: center;
+            font-size: 15px;
+            color: rgb(158, 158, 158);
+        }
+    </style>
+</head>
+
+<body>
+    <img src="https://sso.masaischool.com/brand_dark.svg" alt="">
+    <div id="container">
+        <h3>Sign Up</h3>
+
+        <p class="inputname">Full name</p>
+
+        <input id="name" type="text" placeholder="Enter your full name">
+
+        <p class="inputname">Email</p>
+
+        <input id="email" type="text" placeholder="Enter email">
+
+        <p class="inputname">Password</p>
+
+        <input id="password" type="password" placeholder="Enter password">
+
+        <p id="terms">By signing up, I accept the Masai School <span><a href="">Terms of Services</a></span> and
+            acknowledge the <span><a href="">Privacy Policy.</a></span></p>
+
+        <button id="signupbtn">SIGN UP</button>
+
+        <p id="lastpara">Already have an account? <span><a id="attsign" href="signin.html">Sign In</a></span> </p>
+    </div>
+
+    <p id="lastline">© 2022 by Masai School Privacy Policy & Terms and Conditions</p>
+
+</body>
+
+</html>
+
+
+<script>
+
+    var btn = document.querySelector("#signupbtn")
+    btn.addEventListener("click", myfunction)
+
+
+    function myfunction() {
+
+        var obj = {
+            name: document.querySelector("#name").value,
+            email: document.querySelector("#email").value,
+            password: document.querySelector("#password").value
+        }
+        if (obj.name == "" || obj.email == "" || obj.password == "") {
+            alert("Please Fill The Details")
+        }
+        else {
+            localStorage.setItem("userdetails", JSON.stringify(obj))
+            window.location.href = "signin.html"
+        }
+
+    }
+</script>
